@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7702" systemVersion="14E11f" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Soon_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <group width="1" alignment="left" id="tF9-Lp-uMK">
+                            <items>
+                                <label width="1" height="20" alignment="left" text="Loading" id="KOV-L8-xqP"/>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="235" y="347"/>
+        </scene>
+        <!--com.chromanoir.soonevent.page-->
+        <scene sceneID="qaH-x0-d4x">
+            <objects>
+                <controller identifier="com.chromanoir.soonevent.page" id="DDr-F9-RCH" customClass="SoonEventInterfaceController" customModule="Soon_WatchKit_Extension">
+                    <items>
+                        <group alignment="left" layout="vertical" id="CNN-EW-bE0">
+                            <items>
+                                <label width="1" alignment="left" text="Loading" id="xgz-9m-EY5">
+                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                </label>
+                                <label width="1" alignment="left" text="Loading" id="nix-lC-eNm">
+                                    <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                </label>
+                                <group width="1" alignment="left" id="9Hu-AS-f5d" userLabel="horizontal group">
+                                    <items>
+                                        <group alignment="left" radius="6" id="R9g-WF-EO3">
+                                            <items>
+                                                <imageView width="110" height="120" alignment="left" contentMode="scaleAspectFill" id="4ib-vn-zQG">
+                                                    <variation key="device=watch42mm" width="120"/>
+                                                </imageView>
+                                            </items>
+                                        </group>
+                                        <group width="20" height="20" alignment="left" verticalAlignment="bottom" backgroundImage="favorite_star" contentMode="scaleAspectFit" id="I5h-eg-9cR">
+                                            <items>
+                                                <imageView alignment="left" id="qAu-Mk-gYj" userLabel="favorite image"/>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                    <menu key="menu" id="n0q-5A-9K6">
+                        <items>
+                            <menuItem title="Favorite" image="favorite_star" id="d5J-GT-euF" userLabel="Favorite">
+                                <connections>
+                                    <action selector="didTapFavorite" destination="DDr-F9-RCH" id="nq6-U5-v7H"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="attachmentImageView" destination="4ib-vn-zQG" id="VAJ-xY-s6u"/>
+                        <outlet property="countdownLabel" destination="nix-lC-eNm" id="g09-G2-de9"/>
+                        <outlet property="favoriteImage" destination="qAu-Mk-gYj" id="c8Z-hP-9QS"/>
+                        <outlet property="favoriteImageGroup" destination="I5h-eg-9cR" id="JDQ-zx-0sI"/>
+                        <outlet property="nameLabel" destination="xgz-9m-EY5" id="olJ-7c-Waj"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="406" y="347"/>
+        </scene>
+        <!--com.chromanoir.soonevent.blank-->
+        <scene sceneID="w85-CY-oo4">
+            <objects>
+                <controller identifier="com.chromanoir.soonevent.blank" id="tOi-iJ-R9g">
+                    <items>
+                        <label alignment="left" text="There are no events loaded." numberOfLines="0" id="cDO-bR-88f"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="418" y="651"/>
+        </scene>
+        <!--Glance Interface Controller-->
+        <scene sceneID="BOz-TT-tkC">
+            <objects>
+                <glanceController spacing="0.0" topTemplateType="mediumBody1" id="0uZ-2p-rRc" customClass="GlanceController" customModule="Soon_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label alignment="left" text="Loading" id="oRd-Ye-Ovw"/>
+                        <label alignment="left" id="G6G-IL-yRP"/>
+                        <group alignment="left" layout="vertical" radius="0.0" id="uCw-4Q-Ouw">
+                            <items>
+                                <group alignment="left" radius="6" id="0i4-dX-OaS">
+                                    <items>
+                                        <imageView width="100" height="100" alignment="left" contentMode="scaleAspectFill" id="0ic-9h-7AD">
+                                            <variation key="device=watch42mm" height="110" width="110"/>
+                                        </imageView>
+                                    </items>
+                                    <variation key="default">
+                                        <mask key="items">
+                                            <exclude reference="0ic-9h-7AD"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="device=watch42mm">
+                                        <mask key="items">
+                                            <include reference="0ic-9h-7AD"/>
+                                        </mask>
+                                    </variation>
+                                </group>
+                            </items>
+                            <variation key="default">
+                                <mask key="items">
+                                    <exclude reference="0i4-dX-OaS"/>
+                                </mask>
+                            </variation>
+                            <variation key="device=watch42mm">
+                                <mask key="items">
+                                    <include reference="0i4-dX-OaS"/>
+                                </mask>
+                            </variation>
+                        </group>
+                    </items>
+                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
+                    <connections>
+                        <outlet property="countdownLabel" destination="oRd-Ye-Ovw" id="89Q-bF-vzQ"/>
+                        <outlet property="eventImage" destination="0ic-9h-7AD" id="CzV-Qo-gka"/>
+                        <outlet property="nameLabel" destination="G6G-IL-yRP" id="lP7-cq-aku"/>
+                    </connections>
+                </glanceController>
+            </objects>
+            <point key="canvasLocation" x="234.51282051282053" y="671.71794871794873"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Loading" id="XkS-y5-khE"/>
+                        <imageView width="1" height="100" alignment="left" id="Zte-wQ-nCT"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="XkS-y5-khE" id="49B-RR-99y"/>
+                        <segue destination="gdX-wl-uQE" kind="relationship" relationship="dynamicNotificationInterface" id="fKh-qV-3T2"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="235" y="1001"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="KIl-fV-djm">
+            <objects>
+                <controller id="gdX-wl-uQE" customClass="NotificationController" customModule="Soon_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="553" y="1001"/>
+        </scene>
+    </scenes>
+</document>

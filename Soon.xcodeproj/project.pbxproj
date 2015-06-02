@@ -7,16 +7,60 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B53455281AF04407002C30CF /* SoonPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B534551D1AF04407002C30CF /* SoonPlatform.framework */; };
+		B53455311AF04407002C30CF /* SoonPlatformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53455301AF04407002C30CF /* SoonPlatformTests.swift */; };
+		B53455341AF04407002C30CF /* SoonPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B534551D1AF04407002C30CF /* SoonPlatform.framework */; };
+		B53455361AF04407002C30CF /* SoonPlatform.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B534551D1AF04407002C30CF /* SoonPlatform.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B534553E1AF04428002C30CF /* SoonPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE86D81AEDE95F008B8647 /* SoonPlatform.swift */; };
+		B534553F1AF0442B002C30CF /* Soon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B57564131AEC44E70079B1C9 /* Soon.xcdatamodeld */; };
+		B53455411AF0450C002C30CF /* SoonPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B534551D1AF04407002C30CF /* SoonPlatform.framework */; };
+		B53455421AF0460F002C30CF /* SoonEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE867F1AEC99AB008B8647 /* SoonEvent.swift */; };
+		B56700931AFAAEFF005C37C6 /* SoonEventListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56700921AFAAEFF005C37C6 /* SoonEventListTableViewCell.swift */; };
+		B56700951AFCB441005C37C6 /* SoonEventInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56700941AFCB441005C37C6 /* SoonEventInterfaceController.swift */; };
+		B5710D631AFA0118008F16EA /* SoonObjcShim.m in Sources */ = {isa = PBXBuildFile; fileRef = B5710D611AF9F0A5008F16EA /* SoonObjcShim.m */; };
 		B57564121AEC44E70079B1C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57564111AEC44E70079B1C9 /* AppDelegate.swift */; };
-		B57564151AEC44E70079B1C9 /* Soon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B57564131AEC44E70079B1C9 /* Soon.xcdatamodeld */; };
 		B57564171AEC44E70079B1C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57564161AEC44E70079B1C9 /* ViewController.swift */; };
 		B575641A1AEC44E70079B1C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B57564181AEC44E70079B1C9 /* Main.storyboard */; };
 		B575641C1AEC44E70079B1C9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B575641B1AEC44E70079B1C9 /* Images.xcassets */; };
 		B575641F1AEC44E70079B1C9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B575641D1AEC44E70079B1C9 /* LaunchScreen.xib */; };
 		B575642B1AEC44E70079B1C9 /* SoonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B575642A1AEC44E70079B1C9 /* SoonTests.swift */; };
+		B57564351AEC53CB0079B1C9 /* EventListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57564341AEC53CB0079B1C9 /* EventListTableViewController.swift */; };
+		B57564371AEC54260079B1C9 /* EventEditorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57564361AEC54260079B1C9 /* EventEditorTableViewController.swift */; };
+		B59222611B1E268100807770 /* SoonPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B534551D1AF04407002C30CF /* SoonPlatform.framework */; };
+		B5CE86821AEC9F77008B8647 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5CE86811AEC9F77008B8647 /* CoreData.framework */; };
+		B5CE868E1AEDDC82008B8647 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE868D1AEDDC82008B8647 /* InterfaceController.swift */; };
+		B5CE86901AEDDC82008B8647 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE868F1AEDDC82008B8647 /* NotificationController.swift */; };
+		B5CE86921AEDDC82008B8647 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE86911AEDDC82008B8647 /* GlanceController.swift */; };
+		B5CE86941AEDDC82008B8647 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5CE86931AEDDC82008B8647 /* Images.xcassets */; };
+		B5CE86981AEDDC82008B8647 /* Soon WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = B5CE86971AEDDC82008B8647 /* Soon WatchKit App.app */; };
+		B5CE86A01AEDDC82008B8647 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5CE869E1AEDDC82008B8647 /* Interface.storyboard */; };
+		B5CE86A21AEDDC82008B8647 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5CE86A11AEDDC82008B8647 /* Images.xcassets */; };
+		B5CE86A61AEDDC82008B8647 /* Soon WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B5CE86881AEDDC82008B8647 /* Soon WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B5CE86DF1AEE2143008B8647 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5CE86811AEC9F77008B8647 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B53455291AF04407002C30CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B57564041AEC44E70079B1C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B534551C1AF04407002C30CF;
+			remoteInfo = SoonPlatform;
+		};
+		B534552B1AF04407002C30CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B57564041AEC44E70079B1C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B575640B1AEC44E70079B1C9;
+			remoteInfo = Soon;
+		};
+		B53455321AF04407002C30CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B57564041AEC44E70079B1C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B534551C1AF04407002C30CF;
+			remoteInfo = SoonPlatform;
+		};
 		B57564251AEC44E70079B1C9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B57564041AEC44E70079B1C9 /* Project object */;
@@ -24,9 +68,58 @@
 			remoteGlobalIDString = B575640B1AEC44E70079B1C9;
 			remoteInfo = Soon;
 		};
+		B5CE86991AEDDC82008B8647 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B57564041AEC44E70079B1C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5CE86961AEDDC82008B8647;
+			remoteInfo = "Soon WatchKit App";
+		};
+		B5CE86A31AEDDC82008B8647 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B57564041AEC44E70079B1C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5CE86871AEDDC82008B8647;
+			remoteInfo = "Soon WatchKit Extension";
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B53455351AF04407002C30CF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B53455361AF04407002C30CF /* SoonPlatform.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5CE86A51AEDDC82008B8647 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B5CE86A61AEDDC82008B8647 /* Soon WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		B534551D1AF04407002C30CF /* SoonPlatform.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SoonPlatform.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B53455201AF04407002C30CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B53455271AF04407002C30CF /* SoonPlatformTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoonPlatformTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B534552F1AF04407002C30CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B53455301AF04407002C30CF /* SoonPlatformTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoonPlatformTests.swift; sourceTree = "<group>"; };
+		B56700921AFAAEFF005C37C6 /* SoonEventListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoonEventListTableViewCell.swift; path = Classes/SoonEventListTableViewCell.swift; sourceTree = "<group>"; };
+		B56700941AFCB441005C37C6 /* SoonEventInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoonEventInterfaceController.swift; sourceTree = "<group>"; };
+		B5710D5F1AF9F0A5008F16EA /* Soon-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Soon-Bridging-Header.h"; sourceTree = "<group>"; };
+		B5710D601AF9F0A5008F16EA /* SoonObjcShim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoonObjcShim.h; path = Classes/SoonObjcShim.h; sourceTree = "<group>"; };
+		B5710D611AF9F0A5008F16EA /* SoonObjcShim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoonObjcShim.m; path = Classes/SoonObjcShim.m; sourceTree = "<group>"; };
 		B575640C1AEC44E70079B1C9 /* Soon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B57564101AEC44E70079B1C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B57564111AEC44E70079B1C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,13 +131,49 @@
 		B57564241AEC44E70079B1C9 /* SoonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B57564291AEC44E70079B1C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B575642A1AEC44E70079B1C9 /* SoonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoonTests.swift; sourceTree = "<group>"; };
+		B57564341AEC53CB0079B1C9 /* EventListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventListTableViewController.swift; path = Classes/EventListTableViewController.swift; sourceTree = "<group>"; };
+		B57564361AEC54260079B1C9 /* EventEditorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventEditorTableViewController.swift; path = Classes/EventEditorTableViewController.swift; sourceTree = "<group>"; };
+		B5CE867F1AEC99AB008B8647 /* SoonEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoonEvent.swift; path = ../Soon/Classes/SoonEvent.swift; sourceTree = "<group>"; };
+		B5CE86811AEC9F77008B8647 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B5CE86881AEDDC82008B8647 /* Soon WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Soon WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5CE868B1AEDDC82008B8647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5CE868C1AEDDC82008B8647 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		B5CE868D1AEDDC82008B8647 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		B5CE868F1AEDDC82008B8647 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		B5CE86911AEDDC82008B8647 /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		B5CE86931AEDDC82008B8647 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B5CE86971AEDDC82008B8647 /* Soon WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Soon WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5CE869D1AEDDC82008B8647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5CE869F1AEDDC82008B8647 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		B5CE86A11AEDDC82008B8647 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B5CE86D71AEDE8DA008B8647 /* Soon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Soon.entitlements; sourceTree = "<group>"; };
+		B5CE86D81AEDE95F008B8647 /* SoonPlatform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoonPlatform.swift; path = ../Soon/Classes/SoonPlatform.swift; sourceTree = "<group>"; };
+		B5CE86DC1AEE1B53008B8647 /* Soon WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Soon WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		B5CE86DD1AEE2124008B8647 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B53455191AF04407002C30CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B53455241AF04407002C30CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B53455281AF04407002C30CF /* SoonPlatform.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B57564091AEC44E70079B1C9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B53455341AF04407002C30CF /* SoonPlatform.framework in Frameworks */,
+				B5CE86821AEC9F77008B8647 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,16 +181,67 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B59222611B1E268100807770 /* SoonPlatform.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5CE86851AEDDC82008B8647 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B53455411AF0450C002C30CF /* SoonPlatform.framework in Frameworks */,
+				B5CE86DF1AEE2143008B8647 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B534551E1AF04407002C30CF /* SoonPlatform */ = {
+			isa = PBXGroup;
+			children = (
+				B57564131AEC44E70079B1C9 /* Soon.xcdatamodeld */,
+				B5CE867F1AEC99AB008B8647 /* SoonEvent.swift */,
+				B5CE86D81AEDE95F008B8647 /* SoonPlatform.swift */,
+				B534551F1AF04407002C30CF /* Supporting Files */,
+			);
+			path = SoonPlatform;
+			sourceTree = "<group>";
+		};
+		B534551F1AF04407002C30CF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B53455201AF04407002C30CF /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B534552D1AF04407002C30CF /* SoonPlatformTests */ = {
+			isa = PBXGroup;
+			children = (
+				B53455301AF04407002C30CF /* SoonPlatformTests.swift */,
+				B534552E1AF04407002C30CF /* Supporting Files */,
+			);
+			path = SoonPlatformTests;
+			sourceTree = "<group>";
+		};
+		B534552E1AF04407002C30CF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B534552F1AF04407002C30CF /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		B57564031AEC44E70079B1C9 = {
 			isa = PBXGroup;
 			children = (
 				B575640E1AEC44E70079B1C9 /* Soon */,
+				B5CE86891AEDDC82008B8647 /* Soon WatchKit Extension */,
+				B5CE869B1AEDDC82008B8647 /* Soon WatchKit App */,
+				B534551E1AF04407002C30CF /* SoonPlatform */,
+				B534552D1AF04407002C30CF /* SoonPlatformTests */,
+				B5CE86831AEC9F7F008B8647 /* Frameworks */,
 				B57564271AEC44E70079B1C9 /* SoonTests */,
 				B575640D1AEC44E70079B1C9 /* Products */,
 			);
@@ -72,6 +252,10 @@
 			children = (
 				B575640C1AEC44E70079B1C9 /* Soon.app */,
 				B57564241AEC44E70079B1C9 /* SoonTests.xctest */,
+				B5CE86881AEDDC82008B8647 /* Soon WatchKit Extension.appex */,
+				B5CE86971AEDDC82008B8647 /* Soon WatchKit App.app */,
+				B534551D1AF04407002C30CF /* SoonPlatform.framework */,
+				B53455271AF04407002C30CF /* SoonPlatformTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,13 +263,19 @@
 		B575640E1AEC44E70079B1C9 /* Soon */ = {
 			isa = PBXGroup;
 			children = (
+				B5CE86D71AEDE8DA008B8647 /* Soon.entitlements */,
 				B57564111AEC44E70079B1C9 /* AppDelegate.swift */,
 				B57564161AEC44E70079B1C9 /* ViewController.swift */,
 				B57564181AEC44E70079B1C9 /* Main.storyboard */,
 				B575641B1AEC44E70079B1C9 /* Images.xcassets */,
 				B575641D1AEC44E70079B1C9 /* LaunchScreen.xib */,
-				B57564131AEC44E70079B1C9 /* Soon.xcdatamodeld */,
 				B575640F1AEC44E70079B1C9 /* Supporting Files */,
+				B57564341AEC53CB0079B1C9 /* EventListTableViewController.swift */,
+				B57564361AEC54260079B1C9 /* EventEditorTableViewController.swift */,
+				B5710D601AF9F0A5008F16EA /* SoonObjcShim.h */,
+				B5710D611AF9F0A5008F16EA /* SoonObjcShim.m */,
+				B5710D5F1AF9F0A5008F16EA /* Soon-Bridging-Header.h */,
+				B56700921AFAAEFF005C37C6 /* SoonEventListTableViewCell.swift */,
 			);
 			path = Soon;
 			sourceTree = "<group>";
@@ -115,9 +305,106 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B5CE86831AEC9F7F008B8647 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5CE86DD1AEE2124008B8647 /* ImageIO.framework */,
+				B5CE86811AEC9F77008B8647 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B5CE86891AEDDC82008B8647 /* Soon WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B5CE86DC1AEE1B53008B8647 /* Soon WatchKit Extension.entitlements */,
+				B5CE868D1AEDDC82008B8647 /* InterfaceController.swift */,
+				B5CE868F1AEDDC82008B8647 /* NotificationController.swift */,
+				B5CE86911AEDDC82008B8647 /* GlanceController.swift */,
+				B5CE86931AEDDC82008B8647 /* Images.xcassets */,
+				B5CE868A1AEDDC82008B8647 /* Supporting Files */,
+				B56700941AFCB441005C37C6 /* SoonEventInterfaceController.swift */,
+			);
+			path = "Soon WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		B5CE868A1AEDDC82008B8647 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B5CE868B1AEDDC82008B8647 /* Info.plist */,
+				B5CE868C1AEDDC82008B8647 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B5CE869B1AEDDC82008B8647 /* Soon WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				B5CE869E1AEDDC82008B8647 /* Interface.storyboard */,
+				B5CE86A11AEDDC82008B8647 /* Images.xcassets */,
+				B5CE869C1AEDDC82008B8647 /* Supporting Files */,
+			);
+			path = "Soon WatchKit App";
+			sourceTree = "<group>";
+		};
+		B5CE869C1AEDDC82008B8647 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B5CE869D1AEDDC82008B8647 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		B534551A1AF04407002C30CF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		B534551C1AF04407002C30CF /* SoonPlatform */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B534553B1AF04407002C30CF /* Build configuration list for PBXNativeTarget "SoonPlatform" */;
+			buildPhases = (
+				B53455181AF04407002C30CF /* Sources */,
+				B53455191AF04407002C30CF /* Frameworks */,
+				B534551A1AF04407002C30CF /* Headers */,
+				B534551B1AF04407002C30CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SoonPlatform;
+			productName = SoonPlatform;
+			productReference = B534551D1AF04407002C30CF /* SoonPlatform.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B53455261AF04407002C30CF /* SoonPlatformTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B534553C1AF04407002C30CF /* Build configuration list for PBXNativeTarget "SoonPlatformTests" */;
+			buildPhases = (
+				B53455231AF04407002C30CF /* Sources */,
+				B53455241AF04407002C30CF /* Frameworks */,
+				B53455251AF04407002C30CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B534552A1AF04407002C30CF /* PBXTargetDependency */,
+				B534552C1AF04407002C30CF /* PBXTargetDependency */,
+			);
+			name = SoonPlatformTests;
+			productName = SoonPlatformTests;
+			productReference = B53455271AF04407002C30CF /* SoonPlatformTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B575640B1AEC44E70079B1C9 /* Soon */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B575642E1AEC44E70079B1C9 /* Build configuration list for PBXNativeTarget "Soon" */;
@@ -125,10 +412,14 @@
 				B57564081AEC44E70079B1C9 /* Sources */,
 				B57564091AEC44E70079B1C9 /* Frameworks */,
 				B575640A1AEC44E70079B1C9 /* Resources */,
+				B5CE86A51AEDDC82008B8647 /* Embed App Extensions */,
+				B53455351AF04407002C30CF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B5CE86A41AEDDC82008B8647 /* PBXTargetDependency */,
+				B53455331AF04407002C30CF /* PBXTargetDependency */,
 			);
 			name = Soon;
 			productName = Soon;
@@ -153,6 +444,39 @@
 			productReference = B57564241AEC44E70079B1C9 /* SoonTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		B5CE86871AEDDC82008B8647 /* Soon WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5CE86AA1AEDDC82008B8647 /* Build configuration list for PBXNativeTarget "Soon WatchKit Extension" */;
+			buildPhases = (
+				B5CE86841AEDDC82008B8647 /* Sources */,
+				B5CE86851AEDDC82008B8647 /* Frameworks */,
+				B5CE86861AEDDC82008B8647 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B5CE869A1AEDDC82008B8647 /* PBXTargetDependency */,
+			);
+			name = "Soon WatchKit Extension";
+			productName = "Soon WatchKit Extension";
+			productReference = B5CE86881AEDDC82008B8647 /* Soon WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		B5CE86961AEDDC82008B8647 /* Soon WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5CE86A71AEDDC82008B8647 /* Build configuration list for PBXNativeTarget "Soon WatchKit App" */;
+			buildPhases = (
+				B5CE86951AEDDC82008B8647 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Soon WatchKit App";
+			productName = "Soon WatchKit App";
+			productReference = B5CE86971AEDDC82008B8647 /* Soon WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -162,12 +486,38 @@
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Chroma Noir";
 				TargetAttributes = {
+					B534551C1AF04407002C30CF = {
+						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 92BR85VG4R;
+					};
+					B53455261AF04407002C30CF = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = B575640B1AEC44E70079B1C9;
+					};
 					B575640B1AEC44E70079B1C9 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 92BR85VG4R;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					B57564231AEC44E70079B1C9 = {
 						CreatedOnToolsVersion = 6.3.1;
 						TestTargetID = B575640B1AEC44E70079B1C9;
+					};
+					B5CE86871AEDDC82008B8647 = {
+						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 92BR85VG4R;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					B5CE86961AEDDC82008B8647 = {
+						CreatedOnToolsVersion = 6.3.1;
 					};
 				};
 			};
@@ -186,11 +536,29 @@
 			targets = (
 				B575640B1AEC44E70079B1C9 /* Soon */,
 				B57564231AEC44E70079B1C9 /* SoonTests */,
+				B5CE86871AEDDC82008B8647 /* Soon WatchKit Extension */,
+				B5CE86961AEDDC82008B8647 /* Soon WatchKit App */,
+				B534551C1AF04407002C30CF /* SoonPlatform */,
+				B53455261AF04407002C30CF /* SoonPlatformTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B534551B1AF04407002C30CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B53455251AF04407002C30CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B575640A1AEC44E70079B1C9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -208,16 +576,55 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B5CE86861AEDDC82008B8647 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5CE86941AEDDC82008B8647 /* Images.xcassets in Resources */,
+				B5CE86981AEDDC82008B8647 /* Soon WatchKit App.app in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5CE86951AEDDC82008B8647 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5CE86A01AEDDC82008B8647 /* Interface.storyboard in Resources */,
+				B5CE86A21AEDDC82008B8647 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B53455181AF04407002C30CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B53455421AF0460F002C30CF /* SoonEvent.swift in Sources */,
+				B5710D631AFA0118008F16EA /* SoonObjcShim.m in Sources */,
+				B534553E1AF04428002C30CF /* SoonPlatform.swift in Sources */,
+				B534553F1AF0442B002C30CF /* Soon.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B53455231AF04407002C30CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B53455311AF04407002C30CF /* SoonPlatformTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B57564081AEC44E70079B1C9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B57564171AEC44E70079B1C9 /* ViewController.swift in Sources */,
-				B57564151AEC44E70079B1C9 /* Soon.xcdatamodeld in Sources */,
+				B57564351AEC53CB0079B1C9 /* EventListTableViewController.swift in Sources */,
+				B56700931AFAAEFF005C37C6 /* SoonEventListTableViewCell.swift in Sources */,
 				B57564121AEC44E70079B1C9 /* AppDelegate.swift in Sources */,
+				B57564371AEC54260079B1C9 /* EventEditorTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,13 +636,49 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B5CE86841AEDDC82008B8647 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5CE86901AEDDC82008B8647 /* NotificationController.swift in Sources */,
+				B5CE868E1AEDDC82008B8647 /* InterfaceController.swift in Sources */,
+				B5CE86921AEDDC82008B8647 /* GlanceController.swift in Sources */,
+				B56700951AFCB441005C37C6 /* SoonEventInterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B534552A1AF04407002C30CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B534551C1AF04407002C30CF /* SoonPlatform */;
+			targetProxy = B53455291AF04407002C30CF /* PBXContainerItemProxy */;
+		};
+		B534552C1AF04407002C30CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B575640B1AEC44E70079B1C9 /* Soon */;
+			targetProxy = B534552B1AF04407002C30CF /* PBXContainerItemProxy */;
+		};
+		B53455331AF04407002C30CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B534551C1AF04407002C30CF /* SoonPlatform */;
+			targetProxy = B53455321AF04407002C30CF /* PBXContainerItemProxy */;
+		};
 		B57564261AEC44E70079B1C9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B575640B1AEC44E70079B1C9 /* Soon */;
 			targetProxy = B57564251AEC44E70079B1C9 /* PBXContainerItemProxy */;
+		};
+		B5CE869A1AEDDC82008B8647 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5CE86961AEDDC82008B8647 /* Soon WatchKit App */;
+			targetProxy = B5CE86991AEDDC82008B8647 /* PBXContainerItemProxy */;
+		};
+		B5CE86A41AEDDC82008B8647 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5CE86871AEDDC82008B8647 /* Soon WatchKit Extension */;
+			targetProxy = B5CE86A31AEDDC82008B8647 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -256,9 +699,97 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
+		B5CE869E1AEDDC82008B8647 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B5CE869F1AEDDC82008B8647 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B53455371AF04407002C30CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SoonPlatform/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Soon/Soon-Bridging-Header.h";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B53455381AF04407002C30CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SoonPlatform/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Soon/Soon-Bridging-Header.h";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B53455391AF04407002C30CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SoonPlatformTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Soon.app/Soon";
+			};
+			name = Debug;
+		};
+		B534553A1AF04407002C30CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SoonPlatformTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Soon.app/Soon";
+			};
+			name = Release;
+		};
 		B575642C1AEC44E70079B1C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -346,9 +877,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Soon/Soon.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Soon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Soon/Soon-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -356,9 +894,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Soon/Soon.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Soon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Soon/Soon-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -396,9 +940,93 @@
 			};
 			name = Release;
 		};
+		B5CE86A81AEDDC82008B8647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = Soon_WatchKit_Extension;
+				INFOPLIST_FILE = "Soon WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		B5CE86A91AEDDC82008B8647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				IBSC_MODULE = Soon_WatchKit_Extension;
+				INFOPLIST_FILE = "Soon WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
+		B5CE86AB1AEDDC82008B8647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Soon WatchKit Extension/Soon WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Soon WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B5CE86AC1AEDDC82008B8647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Soon WatchKit Extension/Soon WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Soon WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B534553B1AF04407002C30CF /* Build configuration list for PBXNativeTarget "SoonPlatform" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B53455371AF04407002C30CF /* Debug */,
+				B53455381AF04407002C30CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B534553C1AF04407002C30CF /* Build configuration list for PBXNativeTarget "SoonPlatformTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B53455391AF04407002C30CF /* Debug */,
+				B534553A1AF04407002C30CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B57564071AEC44E70079B1C9 /* Build configuration list for PBXProject "Soon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -415,6 +1043,7 @@
 				B57564301AEC44E70079B1C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B57564311AEC44E70079B1C9 /* Build configuration list for PBXNativeTarget "SoonTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +1052,25 @@
 				B57564331AEC44E70079B1C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B5CE86A71AEDDC82008B8647 /* Build configuration list for PBXNativeTarget "Soon WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5CE86A81AEDDC82008B8647 /* Debug */,
+				B5CE86A91AEDDC82008B8647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B5CE86AA1AEDDC82008B8647 /* Build configuration list for PBXNativeTarget "Soon WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5CE86AB1AEDDC82008B8647 /* Debug */,
+				B5CE86AC1AEDDC82008B8647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
@@ -433,7 +1081,8 @@
 				B57564141AEC44E70079B1C9 /* Soon.xcdatamodel */,
 			);
 			currentVersion = B57564141AEC44E70079B1C9 /* Soon.xcdatamodel */;
-			path = Soon.xcdatamodeld;
+			name = Soon.xcdatamodeld;
+			path = ../Soon/Soon.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
