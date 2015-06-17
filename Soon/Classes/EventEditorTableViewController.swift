@@ -68,15 +68,12 @@ class EventEditorTableViewController: UITableViewController, UIImagePickerContro
         _updateCountdown()
     }
 
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         self.dismissViewControllerAnimated(true) {
-            if image != nil {
-                self.soonEvent.image = image
-                self.soonEvent.imageID = NSUUID().UUIDString
-                self.attachedImageImageView.image = image
-            } else {
-                NSLog("No image picked")
-            }
+            let image = info[UIImagePickerControllerEditedImage] as! UIImage
+            self.soonEvent.image = image
+            self.soonEvent.imageID = NSUUID().UUIDString
+            self.attachedImageImageView.image = image
             self._updateEditPrompt()
         }
     }

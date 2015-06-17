@@ -48,7 +48,8 @@ class InterfaceManager:NSObject {
     func reload(){
         let ctx = SoonPlatform.sharedPlatform().managedObjectContext
         SoonPlatform.sharedPlatform().managedObjectContext.reset()
-        if let events = SoonEvent.fetchUpcomingEventsFromContext(ctx) {
+        let events = SoonEvent.fetchUpcomingEventsFromContext(ctx)
+        if events.count > 0 {
             mode = .Page
             var controllerArray:[String] = Array()
             for event in events {
@@ -86,7 +87,7 @@ class InterfaceManager:NSObject {
         event.isFavorite = true
         let info:[NSObject:AnyObject] = [
             SoonPlatformAppActionKey:SoonPlatformAppAction.Favorite.rawValue,
-            SoonPlatformAppEventURIKey:event.objectID.URIRepresentation().absoluteString!
+            SoonPlatformAppEventURIKey:event.objectID.URIRepresentation().absoluteString
         ]
         WKInterfaceController.openParentApplication(info, reply: { (responseOrNil, errorOrNil) -> Void in
             dispatch_async(dispatch_get_main_queue()){
@@ -107,7 +108,7 @@ class InterfaceManager:NSObject {
         event.isFavorite = false
         let info:[NSObject:AnyObject] = [
             SoonPlatformAppActionKey:SoonPlatformAppAction.Unfavorite.rawValue,
-            SoonPlatformAppEventURIKey:event.objectID.URIRepresentation().absoluteString!
+            SoonPlatformAppEventURIKey:event.objectID.URIRepresentation().absoluteString
         ]
         WKInterfaceController.openParentApplication(info, reply: { (responseOrNil, errorOrNil) -> Void in
             dispatch_async(dispatch_get_main_queue()){
@@ -138,14 +139,14 @@ class InterfaceManager:NSObject {
 
     /// This will purge the device cache of images no longer stored in the app.
     func syncImagesWithDeviceCache(){
-        if let allEvents = SoonEvent.fetchUpcomingEventsFromContext(SoonPlatform.sharedPlatform().managedObjectContext) {
+        let allEvents = SoonEvent.fetchUpcomingEventsFromContext(SoonPlatform.sharedPlatform().managedObjectContext)
+        if allEvents.count > 0 {
             let cacheKeysArray:[String] = (WKInterfaceDevice.currentDevice().cachedImages as NSDictionary).allKeys as! [String]
             let imagesOnDeviceSet:Set<String> = Set(cacheKeysArray)
-            var imagesInDatabaseArray = allEvents.filter({ $0.imageID != nil ? true : false }).map({ $0.imageID! }) as [String]
+            let imagesInDatabaseArray = allEvents.filter({ $0.imageID != nil ? true : false }).map({ $0.imageID! }) as [String]
             let imagesInDatabaseSet:Set<String> = Set(imagesInDatabaseArray)
 
             let imagesToPurge = imagesOnDeviceSet.subtract(imagesInDatabaseSet)
-            let imagesToCache = imagesInDatabaseSet.subtract(imagesOnDeviceSet)
             for imageToPurgeID in imagesToPurge {
                 WKInterfaceDevice.currentDevice().removeCachedImageWithName(imageToPurgeID)
             }

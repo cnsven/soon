@@ -93,21 +93,21 @@ public class SoonEvent: NSManagedObject {
         let hour = 60 * 60
         let minute = 60
         if interval > day {
-            var days = interval / day
+            let days = interval / day
             if days == 1 {
                 return "1 day"
             } else {
                 return "\(days) days"
             }
         } else if interval > hour {
-            var hours = interval / hour
+            let hours = interval / hour
             if hours == 1 {
                 return "1 hour"
             } else {
                 return "\(hours) hours"
             }
         } else {
-            var minutes = interval / minute
+            let minutes = interval / minute
             if minutes == 1 {
                 return "1 minute"
             } else {
@@ -125,31 +125,34 @@ public class SoonEvent: NSManagedObject {
             fetch.predicate = NSPredicate(format: "favoriteNumber = %@", favorited)
         }
         var errorOrNil:NSError?
-        if let results = moc.executeFetchRequest(fetch, error: &errorOrNil) {
+        do {
+            let results = try moc.executeFetchRequest(fetch)
             return results.first as! SoonEvent?
-        } else {
+        } catch let error as NSError {
+            errorOrNil = error
             NSLog("Error: \(errorOrNil)")
             return nil
         }
     }
 
     /// Returns all upcoming events, for use in the main watch app.
-    public class func fetchUpcomingEventsFromContext(moc:NSManagedObjectContext) -> [SoonEvent]? {
+    public class func fetchUpcomingEventsFromContext(moc:NSManagedObjectContext) -> [SoonEvent] {
         let fetch = NSFetchRequest(entityName: EVENT_ENTITY_NAME)
         fetch.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
-        var fetchErrorOrNil:NSError?
-        let resultsOrNil = moc.executeFetchRequest(fetch, error: &fetchErrorOrNil) as! [SoonEvent]?
-        if let fetchError = fetchErrorOrNil {
-            NSLog("FetchError: \(fetchError)")
+        do {
+            let results = try moc.executeFetchRequest(fetch)
+            return results as! [SoonEvent]
+        } catch let error as NSError {
+            NSLog("FetchError: \(error)")
+            return Array()
         }
-        return resultsOrNil
     }
 
     /// Returns resized image data, compressed as a JPEG, for efficiently sending image data to the watch.
     public func generateImageOptimizedForWatchWithWidth(watchWidth:CGFloat, scale:CGFloat) -> NSData {
         let imageForWatchKitExtension = UIImage(data: self.watchExtensionImageData!)!
         let scaledImage = imageForWatchKitExtension.bks_imageScaledToWidth(watchWidth, newScale:scale)
-        return UIImageJPEGRepresentation(scaledImage, 0.8)
+        return UIImageJPEGRepresentation(scaledImage, 0.8)!
     }
 }
 
@@ -169,7 +172,7 @@ extension UIImage {
         if self.size.width <= newWidth {
             return self
         }
-        var newHeight = self.size.height / (self.size.width / newWidth)
+        let newHeight = self.size.height / (self.size.width / newWidth)
         let s = CGSizeMake(newWidth, newHeight)
         UIGraphicsBeginImageContextWithOptions(s, false, newScale)
         self.drawInRect(CGRectMake(0, 0, s.width, s.height))

@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
 
-    func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
+    func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: ([NSObject : AnyObject]?) -> Void) {
         if let action = (userInfo?[SoonPlatformAppActionKey] as! String?), let eventURLString = (userInfo?[SoonPlatformAppEventURIKey] as! String?), let eventURL = NSURL(string: eventURLString), let actionValue = SoonPlatformAppAction(rawValue: action) {
             switch actionValue {
             case .Favorite:
@@ -70,12 +70,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func saveContext () {
-        var error: NSError? = nil
-        let ctx = SoonPlatform.sharedPlatform().managedObjectContext
-        if ctx.hasChanges && !ctx.save(&error) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            NSLog("Unresolved error \(error), \(error!.userInfo)")
+        do {
+            let ctx = SoonPlatform.sharedPlatform().managedObjectContext
+            if ctx.hasChanges {
+                try ctx.save()
+            }
+        } catch let error as NSError {
+            NSLog("Unresolved error \(error), \(error.userInfo)")
             abort()
         }
     }

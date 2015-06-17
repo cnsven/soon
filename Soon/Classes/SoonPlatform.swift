@@ -48,11 +48,16 @@ private let _coordinator:NSPersistentStoreCoordinator = {
     let url = SoonDataURL.URLByAppendingPathComponent("Soon.sqlite")
     var error: NSError? = nil
     let options:[NSObject:AnyObject] = [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption:true]
-    if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: options, error: &error) == nil {
+    do {
+        try coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: options)
+    } catch var error1 as NSError {
+        error = error1
         coordinator = nil
         let finalError = generateCoreDataError(error!)
         NSLog("Unresolved error \(finalError), \(finalError.userInfo)")
         abort()
+    } catch {
+        fatalError()
     }
     
     return coordinator!
@@ -102,21 +107,16 @@ public class SoonPlatform:NSObject {
     }
 
     /// Favorite an event based on its Core Data URI. Useful for communicating between the extension and main app.
-    /// :param: eventURI The Core Data URI for the event object.
+    /// - parameter eventURI: The Core Data URI for the event object.
     public func favoriteEventWithID(eventURI:NSURL) -> (Bool, NSError?){
         if let objectID = managedObjectContext.persistentStoreCoordinator!.managedObjectIDForURIRepresentation(eventURI) {
-            var errorOrNil:NSError?
-            if let object = managedObjectContext.existingObjectWithID(objectID, error: &errorOrNil) as! SoonEvent? {
+            do {
+                let object = try managedObjectContext.existingObjectWithID(objectID) as! SoonEvent
                 object.isFavorite = true
-                var saveErrorOrNil:NSError?
-                if self.managedObjectContext.save(&saveErrorOrNil) {
-                    return (true, nil)
-                } else {
-                    return (false, saveErrorOrNil)
-                }
-
-            } else {
-                return (false, nil)
+                try self.managedObjectContext.save()
+                return (true, nil)
+            } catch let error as NSError {
+                return (false, error)
             }
         } else {
             return (false, nil)
@@ -124,21 +124,16 @@ public class SoonPlatform:NSObject {
     }
 
     /// Unfavorite an event based on its Core Data URI. Useful for communicating between the extension and main app.
-    /// :param: eventURI The Core Data URI for the event object.
+    /// - parameter eventURI: The Core Data URI for the event object.
     public func unfavoriteEventWithID(eventURI:NSURL) -> (Bool, NSError?){
         if let objectID = managedObjectContext.persistentStoreCoordinator!.managedObjectIDForURIRepresentation(eventURI) {
-            var errorOrNil:NSError?
-            if let object = managedObjectContext.existingObjectWithID(objectID, error: &errorOrNil) as! SoonEvent? {
+            do {
+               let object = try managedObjectContext.existingObjectWithID(objectID) as! SoonEvent
                 object.isFavorite = false
-                var saveErrorOrNil:NSError?
-                if self.managedObjectContext.save(&saveErrorOrNil) {
-                    return (true, nil)
-                } else {
-                    return (false, saveErrorOrNil)
-                }
-
-            } else {
-                return (false, nil)
+                try self.managedObjectContext.save()
+                return (true, nil)
+            } catch let error as NSError {
+                return (false, error)
             }
         } else {
             return (false, nil)
@@ -151,7 +146,7 @@ private let _sharedPlatform:SoonPlatform = SoonPlatform()
 public let SoonPlatformErrorDomain = "com.chromanoir.soon.error"
 
 private func generateCoreDataError(error:NSError) -> NSError {
-    var failureReason = "There was an error creating or loading the application's saved data."
+    let failureReason = "There was an error creating or loading the application's saved data."
     var dict = [String: AnyObject]()
     dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
     dict[NSLocalizedFailureReasonErrorKey] = failureReason

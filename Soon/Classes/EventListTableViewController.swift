@@ -70,7 +70,11 @@ class EventListTableViewController: UITableViewController, EventEditorTableViewC
             self.managedObjectContext.insertObject(event)
         }
         var saveErrorOrNil:NSError?
-        self.managedObjectContext.save(&saveErrorOrNil)
+        do {
+            try self.managedObjectContext.save()
+        } catch let error as NSError {
+            saveErrorOrNil = error
+        }
         if let saveError = saveErrorOrNil {
             NSLog("Error saving: \(saveError)")
         }
@@ -80,9 +84,7 @@ class EventListTableViewController: UITableViewController, EventEditorTableViewC
     }
 
     private func _refetchEvents(){
-        if let results = SoonEvent.fetchUpcomingEventsFromContext((SoonPlatform.sharedPlatform().managedObjectContext)) {
-            self.events = results
-        }
+        self.events = SoonEvent.fetchUpcomingEventsFromContext((SoonPlatform.sharedPlatform().managedObjectContext))
     }
 
     // MARK: UITableView Delegate
@@ -109,7 +111,11 @@ class EventListTableViewController: UITableViewController, EventEditorTableViewC
         let event = self.events[indexPath.row]
         self.managedObjectContext.deleteObject(event)
         var saveErrorOrNil:NSError?
-        self.managedObjectContext.save(&saveErrorOrNil)
+        do {
+            try self.managedObjectContext.save()
+        } catch var error as NSError {
+            saveErrorOrNil = error
+        }
         if let saveError = saveErrorOrNil {
             NSLog("Error Saving: \(saveError)")
         } else {
@@ -125,7 +131,10 @@ class EventListTableViewController: UITableViewController, EventEditorTableViewC
             let event = self.events[indexPath.row]
             event.isFavorite = !event.isFavorite
             cell.updateWithEvent(event)
-            SoonPlatform.sharedPlatform().managedObjectContext.save(nil)
+            do {
+                try SoonPlatform.sharedPlatform().managedObjectContext.save()
+            } catch _ {
+            }
         } else {
             NSLog("Tapped on unknown cell")
         }
