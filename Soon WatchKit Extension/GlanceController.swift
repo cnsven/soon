@@ -32,7 +32,6 @@ class GlanceController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "dataStoreDidUpdate:", name: SoonEventsDatastoreDidUpdateNotification, object: nil)
-        InterfaceManager.sharedIntefaceManager().syncImagesWithDeviceCache()
         _updateNextEvent()
     }
 

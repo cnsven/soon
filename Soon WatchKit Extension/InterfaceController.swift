@@ -34,7 +34,7 @@ class InterfaceManager:NSObject, WCSessionDelegate {
         case Page
     }
     var mode:Mode!
-    var connectivitySession:WCSession
+    var watchConnectivitySession:WCSession
     class func sharedIntefaceManager() -> InterfaceManager {
         if let interfaceManager = _sharedIntefaceManager {
             return interfaceManager
@@ -66,19 +66,15 @@ class InterfaceManager:NSObject, WCSessionDelegate {
 
     override init() {
         currentEvents = Array()
-        connectivitySession = WCSession.defaultSession()
+        watchConnectivitySession = WCSession.defaultSession()
         super.init()
-        dispatch_async(dispatch_get_main_queue()) {
-            InterfaceManager.sharedIntefaceManager().syncImagesWithDeviceCache()
-        }
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "dataStoreDidUpdate:", name: SoonEventsDatastoreDidUpdateNotification, object: nil)
         reload()
-        connectivitySession.delegate = self
-        connectivitySession.activateSession()
+        watchConnectivitySession.delegate = self
+        watchConnectivitySession.activateSession()
     }
 
     func dataStoreDidUpdate(notification:NSNotification){
-        InterfaceManager.sharedIntefaceManager().syncImagesWithDeviceCache()
         reload()
     }
 
@@ -90,9 +86,11 @@ class InterfaceManager:NSObject, WCSessionDelegate {
             return
         }
         event.isFavorite = true
+        // FIXME: Use newer APIs
+        /*
         let info:[NSObject:AnyObject] = [
-            SoonPlatformAppActionKey:SoonPlatformAppAction.Favorite.rawValue,
-            SoonPlatformEventIDKey:event.eventID
+        SoonPlatformAppActionKey:SoonPlatformAppAction.Favorite.rawValue,
+        SoonPlatformEventIDKey:event.eventID
         ]
         WKInterfaceController.openParentApplication(info, reply: { (responseOrNil, errorOrNil) -> Void in
             dispatch_async(dispatch_get_main_queue()){
@@ -104,6 +102,7 @@ class InterfaceManager:NSObject, WCSessionDelegate {
                 }
             }
         })
+*/
     }
     func unfavoriteEvent(event:SoonEvent, block:AppRequestCallback){
         if !event.isFavorite {
@@ -111,6 +110,8 @@ class InterfaceManager:NSObject, WCSessionDelegate {
             return
         }
         event.isFavorite = false
+        // FIXME: Use newer APIs
+        /*
         let info:[NSObject:AnyObject] = [
             SoonPlatformAppActionKey:SoonPlatformAppAction.Unfavorite.rawValue,
             SoonPlatformEventIDKey:event.eventID
@@ -125,40 +126,16 @@ class InterfaceManager:NSObject, WCSessionDelegate {
                 }
             }
         })
+*/
     }
 
     func updateInterfaceImage(imageView:WKInterfaceImage, withEvent event:SoonEvent){
-        if let imageID = event.imageID {
-            if WKInterfaceDevice.currentDevice().cachedImages[imageID] != nil {
-                imageView.setImageNamed(imageID)
-            } else {
-                let device = WKInterfaceDevice.currentDevice()
-                let imageData = event.generateImageOptimizedForWatchWithWidth(device.screenBounds.size.width, scale:device.screenScale)
-                imageView.setImageData(imageData)
-                WKInterfaceDevice.currentDevice().addCachedImageWithData(imageData, name: imageID)
-            }
+        if let image = event.image {
+            imageView.setImage(image)
         } else {
+            // Show default image
             imageView.setImage(nil)
         }
-    }
-
-    /// This will purge the device cache of images no longer stored in the app.
-    func syncImagesWithDeviceCache(){
-        let allEvents = SoonEvent.fetchUpcomingEventsFromContext(SoonPlatform.sharedPlatform().managedObjectContext)
-        if allEvents.count > 0 {
-            let cacheKeysArray:[String] = (WKInterfaceDevice.currentDevice().cachedImages as NSDictionary).allKeys as! [String]
-            let imagesOnDeviceSet:Set<String> = Set(cacheKeysArray)
-            let imagesInDatabaseArray = allEvents.filter({ $0.imageID != nil ? true : false }).map({ $0.imageID! }) as [String]
-            let imagesInDatabaseSet:Set<String> = Set(imagesInDatabaseArray)
-
-            let imagesToPurge = imagesOnDeviceSet.subtract(imagesInDatabaseSet)
-            for imageToPurgeID in imagesToPurge {
-                WKInterfaceDevice.currentDevice().removeCachedImageWithName(imageToPurgeID)
-            }
-        } else {
-            WKInterfaceDevice.currentDevice().removeAllCachedImages()
-        }
-        NSNotificationCenter.defaultCenter().postNotificationName(SoonInterfaceManagerDidSyncCacheNotification, object: nil)
     }
 
     // MARK: WCSessionDelegate
@@ -174,7 +151,7 @@ class InterfaceManager:NSObject, WCSessionDelegate {
             for dictionary in events {
                 SoonPlatform.sharedPlatform().ingestEventDictionary(dictionary)
             }
-            
+            try SoonPlatform.sharedPlatform().managedObjectContext.save()
         } catch let error as NSError {
             NSLog("Error cleaning things up: \(error)")
         }

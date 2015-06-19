@@ -36,7 +36,7 @@ public class SoonEvent: NSManagedObject {
         self.eventID = NSUUID().UUIDString as String
     }
 
-    public func generateFoundationObjects() -> NSDictionary {
+    public func generateImageDataOptimizedForWatchWithWidth(width:CGFloat, scale:CGFloat) -> NSDictionary {
         var dictionary:[String:AnyObject] = [EventKeys.Id.rawValue: self.eventID]
         if let name = self.name {
             dictionary[EventKeys.Name.rawValue] = name
@@ -44,8 +44,8 @@ public class SoonEvent: NSManagedObject {
         if let date = self.date {
             dictionary[EventKeys.Date.rawValue] = date
         }
-        if let imageData = self.imageData {
-            dictionary[EventKeys.ImageData.rawValue] = imageData
+        if let _ = self.image {
+            dictionary[EventKeys.ImageData.rawValue] = self.generateImageOptimizedForWatchWithWidth(width, scale: scale)
         }
         return dictionary
     }

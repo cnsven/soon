@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 /// The key for the action you wish to take when calling the main app. See `SoonPlatformAppAction` for valid values.
 public let SoonPlatformAppActionKey = "SoonPlatformAppActionKey"
@@ -46,6 +47,7 @@ private let _coordinator:NSPersistentStoreCoordinator = {
 
     var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: model)
     let url = SoonDataURL.URLByAppendingPathComponent("Soon.sqlite")
+    NSLog("Location on disk: \(url)")
     var error: NSError? = nil
     let options:[NSObject:AnyObject] = [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption:true]
     do {
@@ -162,7 +164,9 @@ public class SoonPlatform:NSObject {
         let event = SoonEvent(entity: entity, insertIntoManagedObjectContext: self.managedObjectContext)
         event.name = dictionary[EventKeys.Name.rawValue] as? String
         event.eventID = dictionary[EventKeys.Id.rawValue] as? String
-        event.imageData = dictionary[EventKeys.ImageData.rawValue] as? NSData
+        if let data = dictionary[EventKeys.ImageData.rawValue] as? NSData {
+            event.image = UIImage(data:data)
+        }
         event.date = dictionary[EventKeys.Date.rawValue] as? NSDate
     }
 }

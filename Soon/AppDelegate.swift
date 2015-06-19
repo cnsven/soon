@@ -9,17 +9,24 @@
 import UIKit
 import CoreData
 import SoonPlatform
+import WatchKit
+import WatchConnectivity
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
 
     var window: UIWindow?
     var eventListController:EventListTableViewController!
+    var watchConnectivitySession:WCSession!
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        watchConnectivitySession = WCSession.defaultSession()
+        watchConnectivitySession.delegate = self
+        watchConnectivitySession.activateSession()
         eventListController = (self.window!.rootViewController as! UINavigationController).viewControllers.first! as! EventListTableViewController
         eventListController.managedObjectContext = SoonPlatform.sharedPlatform().managedObjectContext
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "contextDidSave:", name: NSManagedObjectContextDidSaveNotification, object: SoonPlatform.sharedPlatform().managedObjectContext)
         return true
     }
 
@@ -42,9 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        // Saves changes in the application's managed object context before the application terminates.
-        self.saveContext()
+
     }
 
     func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: ([NSObject : AnyObject]?) -> Void) {
@@ -70,18 +75,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             reply(replyDict)
         }
     }
-
-    func saveContext () {
-        do {
-            let ctx = SoonPlatform.sharedPlatform().managedObjectContext
-            if ctx.hasChanges {
-                try ctx.save()
-            }
-        } catch let error as NSError {
-            NSLog("Unresolved error \(error), \(error.userInfo)")
-            abort()
-        }
+    
+    func contextDidSave(sender:AnyObject){
+        self.sendContextToWatch()
     }
 
+    private func sendContextToWatch(){
+        let device = WKInterfaceDevice.currentDevice()
+        NSLog("Device size: \(device.screenBounds)")
+        var eventsAsDictionaries:[NSDictionary] = Array()
+        for event in SoonEvent.fetchUpcomingEventsFromContext(SoonPlatform.sharedPlatform().managedObjectContext) {
+            eventsAsDictionaries.append(event.generateImageDataOptimizedForWatchWithWidth(device.screenBounds.width, scale: device.screenScale))
+        }
+        do {
+            try watchConnectivitySession.updateApplicationContext([SoonPlatformEventArrayKey:eventsAsDictionaries])
+        } catch let error as NSError {
+            NSLog("Error updating watch app: \(error)")
+            if error.domain == WCErrorDomain {
+                if let errorType = WCErrorCode(rawValue: error.code) {
+                    print(errorType)
+                } else {
+                    NSLog("Uknown type of error")
+                }
+            }
+        }
+    }
+    
 }
 
