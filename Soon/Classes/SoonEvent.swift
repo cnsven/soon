@@ -16,6 +16,8 @@ public let EVENT_ENTITY_NAME = "SoonEvent"
 /// The primary entity that makes up the app.
 public class SoonEvent: NSManagedObject {
 
+    /// A unique ID for this event, generated on first insert.
+    @NSManaged public var eventID:String!
     /// The name of the upcoming event.
     @NSManaged public var name:String?
     /// A unique ID for use as an image cache key. Whenever a new image is assigned to the event, a new UUID is generated and assigned to this property. It's a bad idea to set this value yourself.
@@ -24,11 +26,29 @@ public class SoonEvent: NSManagedObject {
     /// The date the event will take place.
     @NSManaged public var date:NSDate?
 
-    @NSManaged private var imageData:NSData?
+    @NSManaged public var imageData:NSData?
     /// Image data scaled down for use in a watchkit extension. You should perform one more conversion operation within the extension before assigning it to image views.
     @NSManaged public var watchExtensionImageData:NSData?
 
     @NSManaged private var favoriteNumber:NSNumber?
+
+    public func generateEventID(){
+        self.eventID = NSUUID().UUIDString as String
+    }
+
+    public func generateFoundationObjects() -> NSDictionary {
+        var dictionary:[String:AnyObject] = [EventKeys.Id.rawValue: self.eventID]
+        if let name = self.name {
+            dictionary[EventKeys.Name.rawValue] = name
+        }
+        if let date = self.date {
+            dictionary[EventKeys.Date.rawValue] = date
+        }
+        if let imageData = self.imageData {
+            dictionary[EventKeys.ImageData.rawValue] = imageData
+        }
+        return dictionary
+    }
 
     public var isFavorite:Bool {
         get {
@@ -180,4 +200,11 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return finalImage
     }
+}
+
+enum EventKeys:String {
+    case Id = "ID"
+    case Name = "name"
+    case ImageData = "imageData"
+    case Date = "date"
 }

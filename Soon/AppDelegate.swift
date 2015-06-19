@@ -48,12 +48,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: ([NSObject : AnyObject]?) -> Void) {
-        if let action = (userInfo?[SoonPlatformAppActionKey] as! String?), let eventURLString = (userInfo?[SoonPlatformAppEventURIKey] as! String?), let eventURL = NSURL(string: eventURLString), let actionValue = SoonPlatformAppAction(rawValue: action) {
+        if let action = (userInfo?[SoonPlatformAppActionKey] as? String),
+            let eventID = userInfo?[SoonPlatformEventIDKey] as? String,
+            let actionValue = SoonPlatformAppAction(rawValue: action) {
             switch actionValue {
             case .Favorite:
-                SoonPlatform.sharedPlatform().favoriteEventWithID(eventURL)
+                SoonPlatform.sharedPlatform().favoriteEventWithID(eventID)
             case .Unfavorite:
-                SoonPlatform.sharedPlatform().unfavoriteEventWithID(eventURL)
+                SoonPlatform.sharedPlatform().unfavoriteEventWithID(eventID)
             }
             let replyDict:[NSObject:AnyObject] = [
                 SoonPlatformReplyKeys.WasSuccessful.rawValue:NSNumber(bool: true)

@@ -20,8 +20,8 @@ public enum SoonPlatformAppAction:String {
     case Unfavorite = "SoonPlatformAppAction.Unfavorite"
 }
 
-/// The key for the Core Data URI of the event you want to take an action on.
-public let SoonPlatformAppEventURIKey = "SoonPlatformAppEventURIKey"
+public let SoonPlatformEventArrayKey = "SoonPlatformEventArrayKey"
+public let SoonPlatformEventIDKey = "SoonPlatformEventIDKey"
 
 /// The keys contained in the app response dictionary.
 public enum SoonPlatformReplyKeys:String {
@@ -36,7 +36,7 @@ private let APP_GROUP_IDENTIFER = "group.com.chromanoir.soon"
 private let LAST_WRITE_KEY = "LAST_WRITE_KEY"
 
 private let SoonDataURL:NSURL = {
-    return NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier(APP_GROUP_IDENTIFER)!
+    return NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).last!
 }()
 
 private let _coordinator:NSPersistentStoreCoordinator = {
@@ -76,7 +76,7 @@ public class SoonPlatform:NSObject {
     private var lastNotification:NSDate
 
     override init(){
-        managedObjectContext = NSManagedObjectContext()
+        managedObjectContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType)
         userDefaults = NSUserDefaults(suiteName: APP_GROUP_IDENTIFER)!
         lastNotification = NSDate()
         super.init()
@@ -108,38 +108,63 @@ public class SoonPlatform:NSObject {
 
     /// Favorite an event based on its Core Data URI. Useful for communicating between the extension and main app.
     /// - parameter eventURI: The Core Data URI for the event object.
-    public func favoriteEventWithID(eventURI:NSURL) -> (Bool, NSError?){
-        if let objectID = managedObjectContext.persistentStoreCoordinator!.managedObjectIDForURIRepresentation(eventURI) {
-            do {
-                let object = try managedObjectContext.existingObjectWithID(objectID) as! SoonEvent
-                object.isFavorite = true
-                try self.managedObjectContext.save()
-                return (true, nil)
-            } catch let error as NSError {
-                return (false, error)
+    public func favoriteEventWithID(eventID:NSString) -> (Bool, NSError?){
+        do {
+            let object = try self.eventWithID(eventID)
+            object.isFavorite = true
+            try self.managedObjectContext.save()
+            return (true, nil)
+        } catch let error as NSError {
+            return (false, error)
+        }
+    }
+
+    public func eventWithID(eventID:NSString) throws -> SoonEvent {
+        let fetch = NSFetchRequest(entityName: EVENT_ENTITY_NAME)
+        fetch.predicate = NSPredicate(format: "eventID = %@", eventID)
+        fetch.fetchLimit = 1
+        do {
+            let events = try self.managedObjectContext.executeFetchRequest(fetch)
+            guard events.count > 0 else {
+                throw NSError(domain: "com.chromanoir.soon", code: 404, userInfo: [NSLocalizedDescriptionKey:"Event not found with ID: \(eventID)"])
             }
-        } else {
-            return (false, nil)
+            return events.first! as! SoonEvent
+        } catch let error as NSError {
+            throw error
         }
     }
 
     /// Unfavorite an event based on its Core Data URI. Useful for communicating between the extension and main app.
-    /// - parameter eventURI: The Core Data URI for the event object.
-    public func unfavoriteEventWithID(eventURI:NSURL) -> (Bool, NSError?){
-        if let objectID = managedObjectContext.persistentStoreCoordinator!.managedObjectIDForURIRepresentation(eventURI) {
-            do {
-               let object = try managedObjectContext.existingObjectWithID(objectID) as! SoonEvent
-                object.isFavorite = false
-                try self.managedObjectContext.save()
-                return (true, nil)
-            } catch let error as NSError {
-                return (false, error)
-            }
-        } else {
-            return (false, nil)
+    /// - parameter eventID: The eventID of the event.
+    public func unfavoriteEventWithID(eventID:NSString) -> (Bool, NSError?){
+        do {
+           let object = try self.eventWithID(eventID)
+            object.isFavorite = false
+            try self.managedObjectContext.save()
+            return (true, nil)
+        } catch let error as NSError {
+            return (false, error)
         }
     }
 
+    public func deleteAllEvents() throws {
+        let fetchRequest = NSFetchRequest(entityName: EVENT_ENTITY_NAME)
+        let batchDelete = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try self.managedObjectContext.executeRequest(batchDelete)
+        } catch let error as NSError {
+            throw error
+        }   
+    }
+
+    public func ingestEventDictionary(dictionary:NSDictionary){
+        let entity = NSEntityDescription.entityForName(EVENT_ENTITY_NAME, inManagedObjectContext: self.managedObjectContext)!
+        let event = SoonEvent(entity: entity, insertIntoManagedObjectContext: self.managedObjectContext)
+        event.name = dictionary[EventKeys.Name.rawValue] as? String
+        event.eventID = dictionary[EventKeys.Id.rawValue] as? String
+        event.imageData = dictionary[EventKeys.ImageData.rawValue] as? NSData
+        event.date = dictionary[EventKeys.Date.rawValue] as? NSDate
+    }
 }
 
 private let _sharedPlatform:SoonPlatform = SoonPlatform()

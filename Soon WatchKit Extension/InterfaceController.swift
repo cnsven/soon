@@ -9,6 +9,7 @@
 import WatchKit
 import Foundation
 import SoonPlatform
+import WatchConnectivity
 
 let SoonInterfaceManagerDidSyncCacheNotification = "SoonInterfaceManagerDidSyncCacheNotification"
 
@@ -16,7 +17,7 @@ private let SOON_EVENT_PAGE_IDENTIFIER = "com.chromanoir.soonevent.page"
 private let SOON_BLANK_PAGE_IDENTIFIER = "com.chromanoir.soonevent.blank"
 
 
-class InterfaceController: WKInterfaceController {
+class InterfaceController: WKInterfaceController, WCSessionDelegate {
 
     override init() {
         super.init()
@@ -27,12 +28,13 @@ class InterfaceController: WKInterfaceController {
 
 var _sharedIntefaceManager:InterfaceManager?
 
-class InterfaceManager:NSObject {
+class InterfaceManager:NSObject, WCSessionDelegate {
     enum Mode {
         case Empty
         case Page
     }
     var mode:Mode!
+    var connectivitySession:WCSession
     class func sharedIntefaceManager() -> InterfaceManager {
         if let interfaceManager = _sharedIntefaceManager {
             return interfaceManager
@@ -52,7 +54,7 @@ class InterfaceManager:NSObject {
         if events.count > 0 {
             mode = .Page
             var controllerArray:[String] = Array()
-            for event in events {
+            for _ in events {
                 controllerArray.append(SOON_EVENT_PAGE_IDENTIFIER)
             }
             InterfaceController.reloadRootControllersWithNames(controllerArray, contexts: events)
@@ -64,12 +66,15 @@ class InterfaceManager:NSObject {
 
     override init() {
         currentEvents = Array()
+        connectivitySession = WCSession.defaultSession()
         super.init()
         dispatch_async(dispatch_get_main_queue()) {
             InterfaceManager.sharedIntefaceManager().syncImagesWithDeviceCache()
         }
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "dataStoreDidUpdate:", name: SoonEventsDatastoreDidUpdateNotification, object: nil)
         reload()
+        connectivitySession.delegate = self
+        connectivitySession.activateSession()
     }
 
     func dataStoreDidUpdate(notification:NSNotification){
@@ -87,7 +92,7 @@ class InterfaceManager:NSObject {
         event.isFavorite = true
         let info:[NSObject:AnyObject] = [
             SoonPlatformAppActionKey:SoonPlatformAppAction.Favorite.rawValue,
-            SoonPlatformAppEventURIKey:event.objectID.URIRepresentation().absoluteString
+            SoonPlatformEventIDKey:event.eventID
         ]
         WKInterfaceController.openParentApplication(info, reply: { (responseOrNil, errorOrNil) -> Void in
             dispatch_async(dispatch_get_main_queue()){
@@ -108,7 +113,7 @@ class InterfaceManager:NSObject {
         event.isFavorite = false
         let info:[NSObject:AnyObject] = [
             SoonPlatformAppActionKey:SoonPlatformAppAction.Unfavorite.rawValue,
-            SoonPlatformAppEventURIKey:event.objectID.URIRepresentation().absoluteString
+            SoonPlatformEventIDKey:event.eventID
         ]
         WKInterfaceController.openParentApplication(info, reply: { (responseOrNil, errorOrNil) -> Void in
             dispatch_async(dispatch_get_main_queue()){
@@ -154,5 +159,25 @@ class InterfaceManager:NSObject {
             WKInterfaceDevice.currentDevice().removeAllCachedImages()
         }
         NSNotificationCenter.defaultCenter().postNotificationName(SoonInterfaceManagerDidSyncCacheNotification, object: nil)
+    }
+
+    // MARK: WCSessionDelegate
+    func sessionReachabilityDidChange(session: WCSession) {
+        NSLog("Reachability did change")
+    }
+
+    func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
+        // INGEST CONTENT HERE
+        do {
+            try SoonPlatform.sharedPlatform().deleteAllEvents()
+            let events = applicationContext[SoonPlatformEventArrayKey] as! [NSDictionary]
+            for dictionary in events {
+                SoonPlatform.sharedPlatform().ingestEventDictionary(dictionary)
+            }
+            
+        } catch let error as NSError {
+            NSLog("Error cleaning things up: \(error)")
+        }
+        self.reload()
     }
 }

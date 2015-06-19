@@ -45,6 +45,7 @@ class EventListTableViewController: UITableViewController, EventEditorTableViewC
     private func _generateNewEvent() -> SoonEvent {
         let entity = NSEntityDescription.entityForName(EVENT_ENTITY_NAME, inManagedObjectContext: self.managedObjectContext)!
         let event = SoonEvent(entity: entity, insertIntoManagedObjectContext: nil)
+        event.generateEventID()
         return event
     }
 
@@ -113,7 +114,7 @@ class EventListTableViewController: UITableViewController, EventEditorTableViewC
         var saveErrorOrNil:NSError?
         do {
             try self.managedObjectContext.save()
-        } catch var error as NSError {
+        } catch let error as NSError {
             saveErrorOrNil = error
         }
         if let saveError = saveErrorOrNil {

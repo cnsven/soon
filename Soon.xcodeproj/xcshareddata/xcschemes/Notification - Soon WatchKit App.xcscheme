@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0630"
+   LastUpgradeVersion = "0700"
    version = "2.0">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -56,7 +56,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B5CE86BB1AEDE67D008B8647"
+               BlueprintIdentifier = "B53455261AF04407002C30CF"
                BuildableName = "SoonPlatformTests.xctest"
                BlueprintName = "SoonPlatformTests"
                ReferencedContainer = "container:Soon.xcodeproj">
@@ -74,7 +74,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B5CE86BB1AEDE67D008B8647"
+               BlueprintIdentifier = "B53455261AF04407002C30CF"
                BuildableName = "SoonPlatformTests.xctest"
                BlueprintName = "SoonPlatformTests"
                ReferencedContainer = "container:Soon.xcodeproj">
@@ -90,6 +90,8 @@
             ReferencedContainer = "container:Soon.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <AdditionalOptions>
+      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -99,6 +101,7 @@
       buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "8"
       notificationPayloadFile = "Soon WatchKit Extension/PushNotificationPayload.apns">

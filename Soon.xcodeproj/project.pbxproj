@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5168A0B1B33940400293CC9 /* Soon WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B5CE86881AEDDC82008B8647 /* Soon WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B5168A0E1B33940400293CC9 /* Soon WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B5CE86971AEDDC82008B8647 /* Soon WatchKit App.app */; };
 		B53455281AF04407002C30CF /* SoonPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B534551D1AF04407002C30CF /* SoonPlatform.framework */; };
 		B53455311AF04407002C30CF /* SoonPlatformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53455301AF04407002C30CF /* SoonPlatformTests.swift */; };
 		B53455341AF04407002C30CF /* SoonPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B534551D1AF04407002C30CF /* SoonPlatform.framework */; };
@@ -27,19 +29,33 @@
 		B57564351AEC53CB0079B1C9 /* EventListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57564341AEC53CB0079B1C9 /* EventListTableViewController.swift */; };
 		B57564371AEC54260079B1C9 /* EventEditorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57564361AEC54260079B1C9 /* EventEditorTableViewController.swift */; };
 		B59222611B1E268100807770 /* SoonPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B534551D1AF04407002C30CF /* SoonPlatform.framework */; };
+		B5A725EA1B335606006B7E39 /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A725E81B33559E006B7E39 /* WatchConnectivity.framework */; };
+		B5A725EB1B335612006B7E39 /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A725E81B33559E006B7E39 /* WatchConnectivity.framework */; };
 		B5CE86821AEC9F77008B8647 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5CE86811AEC9F77008B8647 /* CoreData.framework */; };
 		B5CE868E1AEDDC82008B8647 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE868D1AEDDC82008B8647 /* InterfaceController.swift */; };
 		B5CE86901AEDDC82008B8647 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE868F1AEDDC82008B8647 /* NotificationController.swift */; };
 		B5CE86921AEDDC82008B8647 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE86911AEDDC82008B8647 /* GlanceController.swift */; };
 		B5CE86941AEDDC82008B8647 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5CE86931AEDDC82008B8647 /* Images.xcassets */; };
-		B5CE86981AEDDC82008B8647 /* Soon WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = B5CE86971AEDDC82008B8647 /* Soon WatchKit App.app */; };
 		B5CE86A01AEDDC82008B8647 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5CE869E1AEDDC82008B8647 /* Interface.storyboard */; };
 		B5CE86A21AEDDC82008B8647 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5CE86A11AEDDC82008B8647 /* Images.xcassets */; };
-		B5CE86A61AEDDC82008B8647 /* Soon WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B5CE86881AEDDC82008B8647 /* Soon WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B5CE86DF1AEE2143008B8647 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5CE86811AEC9F77008B8647 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B5168A091B33940400293CC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B57564041AEC44E70079B1C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5CE86871AEDDC82008B8647;
+			remoteInfo = "Soon WatchKit Extension";
+		};
+		B5168A0C1B33940400293CC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B57564041AEC44E70079B1C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5CE86961AEDDC82008B8647;
+			remoteInfo = "Soon WatchKit App";
+		};
 		B53455291AF04407002C30CF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B57564041AEC44E70079B1C9 /* Project object */;
@@ -68,23 +84,31 @@
 			remoteGlobalIDString = B575640B1AEC44E70079B1C9;
 			remoteInfo = Soon;
 		};
-		B5CE86991AEDDC82008B8647 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B57564041AEC44E70079B1C9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B5CE86961AEDDC82008B8647;
-			remoteInfo = "Soon WatchKit App";
-		};
-		B5CE86A31AEDDC82008B8647 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B57564041AEC44E70079B1C9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B5CE86871AEDDC82008B8647;
-			remoteInfo = "Soon WatchKit Extension";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		B5168A0F1B33940400293CC9 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B5168A0B1B33940400293CC9 /* Soon WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5168A101B33940400293CC9 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				B5168A0E1B33940400293CC9 /* Soon WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B53455351AF04407002C30CF /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -94,17 +118,6 @@
 				B53455361AF04407002C30CF /* SoonPlatform.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B5CE86A51AEDDC82008B8647 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				B5CE86A61AEDDC82008B8647 /* Soon WatchKit Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -133,6 +146,7 @@
 		B575642A1AEC44E70079B1C9 /* SoonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoonTests.swift; sourceTree = "<group>"; };
 		B57564341AEC53CB0079B1C9 /* EventListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventListTableViewController.swift; path = Classes/EventListTableViewController.swift; sourceTree = "<group>"; };
 		B57564361AEC54260079B1C9 /* EventEditorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventEditorTableViewController.swift; path = Classes/EventEditorTableViewController.swift; sourceTree = "<group>"; };
+		B5A725E81B33559E006B7E39 /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
 		B5CE867F1AEC99AB008B8647 /* SoonEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoonEvent.swift; path = ../Soon/Classes/SoonEvent.swift; sourceTree = "<group>"; };
 		B5CE86811AEC9F77008B8647 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B5CE86881AEDDC82008B8647 /* Soon WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Soon WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5A725EA1B335606006B7E39 /* WatchConnectivity.framework in Frameworks */,
 				B53455341AF04407002C30CF /* SoonPlatform.framework in Frameworks */,
 				B5CE86821AEC9F77008B8647 /* CoreData.framework in Frameworks */,
 			);
@@ -189,6 +204,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5A725EB1B335612006B7E39 /* WatchConnectivity.framework in Frameworks */,
 				B53455411AF0450C002C30CF /* SoonPlatform.framework in Frameworks */,
 				B5CE86DF1AEE2143008B8647 /* CoreData.framework in Frameworks */,
 			);
@@ -308,6 +324,7 @@
 		B5CE86831AEC9F7F008B8647 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B5A725E81B33559E006B7E39 /* WatchConnectivity.framework */,
 				B5CE86DD1AEE2124008B8647 /* ImageIO.framework */,
 				B5CE86811AEC9F77008B8647 /* CoreData.framework */,
 			);
@@ -412,14 +429,14 @@
 				B57564081AEC44E70079B1C9 /* Sources */,
 				B57564091AEC44E70079B1C9 /* Frameworks */,
 				B575640A1AEC44E70079B1C9 /* Resources */,
-				B5CE86A51AEDDC82008B8647 /* Embed App Extensions */,
 				B53455351AF04407002C30CF /* Embed Frameworks */,
+				B5168A101B33940400293CC9 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B5CE86A41AEDDC82008B8647 /* PBXTargetDependency */,
 				B53455331AF04407002C30CF /* PBXTargetDependency */,
+				B5168A0D1B33940400293CC9 /* PBXTargetDependency */,
 			);
 			name = Soon;
 			productName = Soon;
@@ -455,27 +472,28 @@
 			buildRules = (
 			);
 			dependencies = (
-				B5CE869A1AEDDC82008B8647 /* PBXTargetDependency */,
 			);
 			name = "Soon WatchKit Extension";
 			productName = "Soon WatchKit Extension";
 			productReference = B5CE86881AEDDC82008B8647 /* Soon WatchKit Extension.appex */;
-			productType = "com.apple.product-type.watchkit-extension";
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 		B5CE86961AEDDC82008B8647 /* Soon WatchKit App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5CE86A71AEDDC82008B8647 /* Build configuration list for PBXNativeTarget "Soon WatchKit App" */;
 			buildPhases = (
 				B5CE86951AEDDC82008B8647 /* Resources */,
+				B5168A0F1B33940400293CC9 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B5168A0A1B33940400293CC9 /* PBXTargetDependency */,
 			);
 			name = "Soon WatchKit App";
 			productName = "Soon WatchKit App";
 			productReference = B5CE86971AEDDC82008B8647 /* Soon WatchKit App.app */;
-			productType = "com.apple.product-type.application.watchapp";
+			productType = "com.apple.product-type.application.watchapp2";
 		};
 /* End PBXNativeTarget section */
 
@@ -484,7 +502,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Chroma Noir";
 				TargetAttributes = {
 					B534551C1AF04407002C30CF = {
@@ -582,7 +600,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5CE86941AEDDC82008B8647 /* Images.xcassets in Resources */,
-				B5CE86981AEDDC82008B8647 /* Soon WatchKit App.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,6 +668,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B5168A0A1B33940400293CC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5CE86871AEDDC82008B8647 /* Soon WatchKit Extension */;
+			targetProxy = B5168A091B33940400293CC9 /* PBXContainerItemProxy */;
+		};
+		B5168A0D1B33940400293CC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5CE86961AEDDC82008B8647 /* Soon WatchKit App */;
+			targetProxy = B5168A0C1B33940400293CC9 /* PBXContainerItemProxy */;
+		};
 		B534552A1AF04407002C30CF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B534551C1AF04407002C30CF /* SoonPlatform */;
@@ -670,16 +697,6 @@
 			isa = PBXTargetDependency;
 			target = B575640B1AEC44E70079B1C9 /* Soon */;
 			targetProxy = B57564251AEC44E70079B1C9 /* PBXContainerItemProxy */;
-		};
-		B5CE869A1AEDDC82008B8647 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B5CE86961AEDDC82008B8647 /* Soon WatchKit App */;
-			targetProxy = B5CE86991AEDDC82008B8647 /* PBXContainerItemProxy */;
-		};
-		B5CE86A41AEDDC82008B8647 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B5CE86871AEDDC82008B8647 /* Soon WatchKit Extension */;
-			targetProxy = B5CE86A31AEDDC82008B8647 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -729,6 +746,7 @@
 				INFOPLIST_FILE = SoonPlatform/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chromanoir.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Soon/Soon-Bridging-Header.h";
@@ -751,6 +769,7 @@
 				INFOPLIST_FILE = SoonPlatform/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chromanoir.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Soon/Soon-Bridging-Header.h";
@@ -772,6 +791,7 @@
 				);
 				INFOPLIST_FILE = SoonPlatformTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chromanoir.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Soon.app/Soon";
 			};
@@ -786,6 +806,7 @@
 				);
 				INFOPLIST_FILE = SoonPlatformTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chromanoir.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Soon.app/Soon";
 			};
@@ -812,6 +833,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -827,7 +849,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -866,7 +888,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -884,6 +906,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Soon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chromanoir.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Soon/Soon-Bridging-Header.h";
@@ -901,6 +924,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Soon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chromanoir.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Soon/Soon-Bridging-Header.h";
@@ -921,6 +945,7 @@
 				);
 				INFOPLIST_FILE = SoonTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chromanoir.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Soon.app/Soon";
 			};
@@ -936,6 +961,7 @@
 				);
 				INFOPLIST_FILE = SoonTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chromanoir.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Soon.app/Soon";
 			};
@@ -946,17 +972,19 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				IBSC_MODULE = Soon_WatchKit_Extension;
 				INFOPLIST_FILE = "Soon WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chromanoir.Soon.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
-				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -965,13 +993,15 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = Soon_WatchKit_Extension;
 				INFOPLIST_FILE = "Soon WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chromanoir.Soon.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
-				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -987,9 +1017,13 @@
 				);
 				INFOPLIST_FILE = "Soon WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chromanoir.Soon.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -1001,9 +1035,13 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Soon WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chromanoir.Soon.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
