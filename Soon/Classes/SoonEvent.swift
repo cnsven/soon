@@ -36,7 +36,7 @@ public class SoonEvent: NSManagedObject {
         self.eventID = NSUUID().UUIDString as String
     }
 
-    public func generateImageDataOptimizedForWatchWithWidth(width:CGFloat, scale:CGFloat) -> NSDictionary {
+    public func generateDictionaryOptimizedForWatchWithWidth(width:CGFloat, scale:CGFloat) -> NSDictionary {
         var dictionary:[String:AnyObject] = [EventKeys.Id.rawValue: self.eventID]
         if let name = self.name {
             dictionary[EventKeys.Name.rawValue] = name
@@ -48,6 +48,15 @@ public class SoonEvent: NSManagedObject {
             dictionary[EventKeys.ImageData.rawValue] = self.generateImageOptimizedForWatchWithWidth(width, scale: scale)
         }
         return dictionary
+    }
+
+    public func loadDictionary(dictionary:NSDictionary){
+        self.name = dictionary[EventKeys.Name.rawValue] as? String
+        self.eventID = dictionary[EventKeys.Id.rawValue] as? String
+        if let data = dictionary[EventKeys.ImageData.rawValue] as? NSData {
+            self.image = UIImage(data:data)
+        }
+        self.date = dictionary[EventKeys.Date.rawValue] as? NSDate
     }
 
     public var isFavorite:Bool {

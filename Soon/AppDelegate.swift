@@ -85,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         NSLog("Device size: \(device.screenBounds)")
         var eventsAsDictionaries:[NSDictionary] = Array()
         for event in SoonEvent.fetchUpcomingEventsFromContext(SoonPlatform.sharedPlatform().managedObjectContext) {
-            eventsAsDictionaries.append(event.generateImageDataOptimizedForWatchWithWidth(device.screenBounds.width, scale: device.screenScale))
+            eventsAsDictionaries.append(event.generateDictionaryOptimizedForWatchWithWidth(device.screenBounds.width, scale: device.screenScale))
         }
         do {
             try watchConnectivitySession.updateApplicationContext([SoonPlatformEventArrayKey:eventsAsDictionaries])

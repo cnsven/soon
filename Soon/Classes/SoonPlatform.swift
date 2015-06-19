@@ -162,12 +162,7 @@ public class SoonPlatform:NSObject {
     public func ingestEventDictionary(dictionary:NSDictionary){
         let entity = NSEntityDescription.entityForName(EVENT_ENTITY_NAME, inManagedObjectContext: self.managedObjectContext)!
         let event = SoonEvent(entity: entity, insertIntoManagedObjectContext: self.managedObjectContext)
-        event.name = dictionary[EventKeys.Name.rawValue] as? String
-        event.eventID = dictionary[EventKeys.Id.rawValue] as? String
-        if let data = dictionary[EventKeys.ImageData.rawValue] as? NSData {
-            event.image = UIImage(data:data)
-        }
-        event.date = dictionary[EventKeys.Date.rawValue] as? NSDate
+        event.loadDictionary(dictionary)
     }
 }
 
