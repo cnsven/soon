@@ -1,6 +1,6 @@
 # Soon: A Demo WatchKit App
 
-This this project shows one architecture for writing a WatchKit extension with an app and glance. In particular, it shows one way to sharing data between your iOS app and the extension.
+This this project shows one architecture for writing a WatchKit extension with an app and glance. In particular, it shows one way of sharing data between your iOS app and the extension.
 
 The app itself is used for counting down to an event you're looking forward to. If you favorite an event, it will have higher priority in the Glance.
 
